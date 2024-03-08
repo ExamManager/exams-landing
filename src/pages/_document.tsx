@@ -1,8 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+const MyDocument = () => {
   return (
-    <Html lang="en">
+    <Html
+      className="text-slate-12 selection:bg-cyan-5 selection:text-cyan-12 bg-black"
+      lang="en"
+    >
       <Head />
       <body>
         <Main />
@@ -10,4 +13,6 @@ export default function Document() {
       </body>
     </Html>
   );
-}
+};
+
+export default MyDocument;
