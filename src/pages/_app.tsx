@@ -12,6 +12,7 @@ const inter = Inter({
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { Toaster } from "@/components/ui/sonner"
 
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
@@ -57,6 +58,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <meta content="website" property="og:type" />
         </Head>
         <Component {...pageProps} />
+        <Toaster />
         <Analytics />
       </main>
     </PostHogProvider>
