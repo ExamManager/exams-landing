@@ -90,8 +90,7 @@ const Web = () => {
             </Heading>
             <div className="sm:px-20">
               <Text size="5">
-                A collection of high-quality, unstyled components for creating
-                beautiful emails using React and TypeScript.
+              Empowering Educators with Simplified Exam Coordination
               </Text>
             </div>
           </div>
