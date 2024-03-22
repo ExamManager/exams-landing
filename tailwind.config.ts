@@ -1,8 +1,11 @@
-const colors = require("@radix-ui/colors");
-const { fontFamily } = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
+import colors from "@radix-ui/colors";
+import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
-const iOsHeight = plugin(function ({ addUtilities }) {
+const { fontFamily } = defaultTheme;
+
+const iOsHeight = plugin(({ addUtilities }) => {
   const supportsTouchRule = "@supports (-webkit-touch-callout: none)";
   const webkitFillAvailable = "-webkit-fill-available";
 
@@ -19,7 +22,7 @@ const iOsHeight = plugin(function ({ addUtilities }) {
     },
   };
 
-  addUtilities(utilities, ["responsive"]);
+  addUtilities(utilities);
 });
 
 /** @type {import('tailwindcss').Config} */
@@ -85,10 +88,6 @@ module.exports = {
   },
   plugins: [iOsHeight, addVariablesForColors],
 };
-
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
