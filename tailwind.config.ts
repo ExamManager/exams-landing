@@ -7,7 +7,7 @@ const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
  
-const iOsHeight = plugin(function ({ addUtilities }) {
+const iOsHeight = plugin(function ({ addUtilities }: { addUtilities: (utilities: any, variants: string[]) => void }) {
   const supportsTouchRule = "@supports (-webkit-touch-callout: none)";
   const webkitFillAvailable = "-webkit-fill-available";
 
