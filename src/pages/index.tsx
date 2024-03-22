@@ -27,10 +27,10 @@ const Web = () => {
   async function handleEmailSignup(email: string) {
   const promise = () => new Promise(async (resolve) => {
     setLoading(true);
-    console.log('start')
     try {
       // Send email to newsletter
       // use api
+      console.log(email);
       const response = await fetch('/api/resend', {
         method: 'POST',
         body: JSON.stringify({ email }),
@@ -45,7 +45,6 @@ const Web = () => {
       }
 
       resolve(true)
-      console.log('done')
     } catch (error) {
       console.log(error);
       resolve(false);
