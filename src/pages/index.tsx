@@ -13,6 +13,7 @@ import { Input } from "@/components/input";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { toast } from "sonner"
+import posthog from "posthog-js";
 
 
 const Web = () => {
@@ -43,7 +44,7 @@ const Web = () => {
       if (!data.success) {
         throw new Error('Failed to send email')
       }
-
+      posthog.capture('email_signup', { email })
       resolve(true)
     } catch (error) {
       console.log(error);
