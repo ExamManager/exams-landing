@@ -19,7 +19,7 @@ export const IconClipboard: React.FC<Readonly<IconProps>> = (props) => (
       strokeWidth="1.5"
     />
     <path
-      d="M9.75 12.25H14.25"
+      d="M9.75 12.25H14.25" 
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
