@@ -1,37 +1,22 @@
 # ExamManager Landing
 
-Waitlist / marketing landing page for [ExamManager](https://github.com/ExamManager) — the next-generation exam coordination platform for educators.
-
-Collects email signups via Resend, with optional PostHog analytics.
+Waitlist and marketing landing page for ExamManager — email signup via Resend, optional PostHog analytics.
 
 ## Stack
 
-- [Next.js](https://nextjs.org/) (Pages Router)
-- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Resend](https://resend.com/) (waitlist contacts)
-- [PostHog](https://posthog.com/) (analytics)
-- [Framer Motion](https://www.framer.com/motion/)
+- Next.js (Pages Router) and React
+- TypeScript and Tailwind CSS
+- Resend (waitlist contacts)
+- PostHog (analytics)
+- Framer Motion
+- Yarn
 
-## Getting started
+## Local development
 
-1. Install dependencies:
-
-```sh
-pnpm install
-# or: yarn install / npm install
-```
-
-2. Copy the example env and fill in your keys:
-
-```sh
+```bash
+yarn install
 cp .env.example .env
-```
-
-3. Start the dev server:
-
-```sh
-pnpm dev
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
@@ -41,17 +26,27 @@ Open [http://localhost:3000](http://localhost:3000).
 | Variable | Description |
 | --- | --- |
 | `NEXT_PUBLIC_POSTHOG_KEY` | PostHog project API key |
-| `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host (e.g. `REDACTED`) |
+| `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host (e.g. `https://app.posthog.com`) |
 | `RESEND_API_KEY` | Resend API key for waitlist signups |
 | `RESEND_AUDIENCE_ID` | Resend audience ID for contacts |
 
-## Related repos
+## Commands
 
-- [exams-app-v1](https://github.com/ExamManager/exams-app-v1) — first ExamManager app
-- [exams-app-v2](https://github.com/ExamManager/exams-app-v2) — Taxonomy-era Next.js + Prisma exam manager
-- [exams-app-v3](https://github.com/ExamManager/exams-app-v3) — latest ExamManager app
-- [exams-landing](https://github.com/ExamManager/exams-landing) — this waitlist / landing page
+| Command | Purpose |
+| --- | --- |
+| `yarn dev` | Development server |
+| `yarn build` | Production build |
+| `yarn start` | Serve production build |
+| `yarn lint` | ESLint |
+
+## Related repositories
+
+| Repo | Role |
+| --- | --- |
+| [exams-app-v1](https://github.com/ExamManager/exams-app-v1) | Vue 3 exam timer |
+| [exams-app-v2](https://github.com/ExamManager/exams-app-v2) | Next.js + Prisma exam manager |
+| [exams-app-v3](https://github.com/ExamManager/exams-app-v3) | T3 / Drizzle SaaS rewrite |
 
 ## License
 
-Licensed under the [MIT License](./LICENSE).
+MIT — see [LICENSE](./LICENSE).
