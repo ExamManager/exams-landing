@@ -29,9 +29,6 @@ const Web = () => {
   const promise = () => new Promise(async (resolve) => {
     setLoading(true);
     try {
-      // Send email to newsletter
-      // use api
-      console.log(email);
       const response = await fetch('/api/resend', {
         method: 'POST',
         body: JSON.stringify({ email }),
@@ -39,15 +36,13 @@ const Web = () => {
           'Content-Type': 'application/json'
         }
       })
-      // response send success=true or false
       const data = await response.json()
       if (!data.success) {
         throw new Error('Failed to send email')
       }
       posthog.capture('email_signup', { email })
       resolve(true)
-    } catch (error) {
-      console.log(error);
+    } catch {
       resolve(false);
     }
   });

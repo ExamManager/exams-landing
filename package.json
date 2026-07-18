@@ -1,7 +1,8 @@
 {
-  "name": "landing",
+  "name": "exams-landing",
   "version": "0.1.0",
   "private": true,
+  "description": "ExamManager waitlist / landing page — Next.js signup funnel with Resend and PostHog",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
