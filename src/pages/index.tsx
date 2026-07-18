@@ -71,7 +71,7 @@ const Web = () => {
           <div className="max-w-[725px] text-center">
             <div className="flex items-center justify-center mb-8">
               <Image
-                alt="React Email Logo"
+                alt="ExamManager logo"
                 height="120"
                 src="/static/logo.png"
                 width="120"
