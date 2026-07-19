@@ -21,7 +21,7 @@ const Web = () => {
         <meta content={title} property="og:title" />
         <meta content={description} property="og:description" />
       </Head>
-      <div className="h-screen-ios relative z-20 mx-auto flex h-screen max-w-7xl flex-col justify-between px-4">
+      <div className="relative z-20 mx-auto flex min-h-[calc(100dvh-3.25rem)] max-w-7xl flex-col justify-between px-4">
         <Topbar />
         <div className="relative mx-auto flex max-w-3xl flex-col justify-center">
           <div className="max-w-[725px] text-center">

@@ -57,9 +57,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <meta content="/static/cover.png" name="twitter:image" />
           <meta content="website" property="og:type" />
         </Head>
-        <div className="sticky top-0 z-[60]">
-          <DeprecationBanner />
-        </div>
+        <DeprecationBanner />
         <Component {...pageProps} />
         <Toaster />
         <Analytics />
