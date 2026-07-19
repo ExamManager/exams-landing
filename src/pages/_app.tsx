@@ -51,6 +51,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Head>
           <link href="/static/favicon.ico" rel="icon" sizes="any" />
           <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link href="/static/icon.png" rel="icon" type="image/png" sizes="32x32" />
           <link href="/static/apple-touch-icon.png" rel="apple-touch-icon" />
           <meta content="summary_large_image" name="twitter:card" />
           <meta content="/static/cover.png" property="og:image" />
