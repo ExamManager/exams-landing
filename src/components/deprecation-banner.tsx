@@ -12,7 +12,7 @@ export function DeprecationBanner() {
           className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
           aria-hidden="true"
         />
-        <p className="truncate whitespace-nowrap">
+        <p className="min-w-0 truncate">
           <span className="font-semibold">Deprecated showcase.</span> ExamManager
           is no longer an active product — portfolio demo only.
         </p>
