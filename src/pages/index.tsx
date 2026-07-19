@@ -29,7 +29,7 @@ const Web = () => {
               <Image
                 alt="ExamManager logo"
                 height="120"
-                src="/static/logo.png"
+                src="/static/logo-transparent.png"
                 width="120"
               />
             </div>
