@@ -16,6 +16,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
+import { DeprecationBanner } from "@/components/deprecation-banner"
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (
@@ -56,6 +57,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <meta content="/static/cover.png" name="twitter:image" />
           <meta content="website" property="og:type" />
         </Head>
+        <div className="sticky top-0 z-[60]">
+          <DeprecationBanner />
+        </div>
         <Component {...pageProps} />
         <Toaster />
         <Analytics />

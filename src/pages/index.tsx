@@ -1,62 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "../components/button";
-import { Code } from "../components/code";
 import { Footer } from "../components/footer";
 import { Heading } from "../components/heading";
-import { IconArrowRight } from "../components/icons";
 import { Text } from "../components/text";
 import { Topbar } from "../components/topbar";
 import { BackgroundBeams } from "@/components/background-beams";
 import { Input } from "@/components/input";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { toast } from "sonner"
-import posthog from "posthog-js";
+import { AuthDisabledNotice } from "@/components/auth-disabled-notice";
 
 
 const Web = () => {
   const title = "ExamManager";
   const description =
     "Manage Exams more efficiently with the next generation of Exam managing";
-
-  const [email, setEmail] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
-  const [done, setDone] = React.useState(false);
-
-  async function handleEmailSignup(email: string) {
-  const promise = () => new Promise(async (resolve) => {
-    setLoading(true);
-    try {
-      const response = await fetch('/api/resend', {
-        method: 'POST',
-        body: JSON.stringify({ email }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const data = await response.json()
-      if (!data.success) {
-        throw new Error('Failed to send email')
-      }
-      posthog.capture('email_signup', { email })
-      resolve(true)
-    } catch {
-      resolve(false);
-    }
-  });
-
-  toast.promise(promise, {
-    loading: 'Loading...',
-    success: () => {
-      setLoading(false);
-      setDone(true);
-      return `You have been added to the newsletter! 🎉`;
-    },
-    error: 'Error',
-  });
-}
 
   return (
     <>
@@ -90,27 +46,32 @@ const Web = () => {
             </div>
           </div>
 
-          <motion.form
-            initial={{ opacity: 1, scale: 1 }}
-            animate={{ opacity: done ? 0 : 1, scale: done ? 0.9 : 1, transform: done ? "translateY(-50px)" : "translateY(0)" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="mt-10 flex items-center justify-center gap-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleEmailSignup(email);
-            }}
-          >
-            {/* Make email signup to newsletter */}
-            <Input id="email" placeholder="support@examtimer.tech" type="email" className="w-80" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <button
-              className="bg-gradient-to-br w-40 relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-              type="submit"
-              disabled={loading}
-            >
-              {"Sign up ->"}
-              <BottomGradient />
-            </button>
-          </motion.form>
+          <div className="mt-10 flex flex-col items-center justify-center gap-3">
+            <AuthDisabledNotice />
+            <fieldset disabled className="flex items-center justify-center gap-4">
+              <form
+                className="flex items-center justify-center gap-4"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <Input
+                  id="email"
+                  placeholder="support@examtimer.tech"
+                  type="email"
+                  className="w-80"
+                  value=""
+                  readOnly
+                />
+                <button
+                  className="bg-gradient-to-br w-40 relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] opacity-60"
+                  type="submit"
+                  disabled
+                >
+                  {"Sign up ->"}
+                  <BottomGradient />
+                </button>
+              </form>
+            </fieldset>
+          </div>
         </div>
         <Footer />
       </div>
