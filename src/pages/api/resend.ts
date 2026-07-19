@@ -11,6 +11,6 @@ export default function handler(
 ) {
   return res.status(503).json({
     success: false,
-    error: "Sign up is currently unavailable",
+    error: "Portfolio demo — signup is unavailable",
   });
 }

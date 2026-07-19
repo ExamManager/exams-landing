@@ -37,25 +37,37 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     // Track page views
-    const handleRouteChange = () => posthog?.capture('$pageview')
-    router.events.on('routeChangeComplete', handleRouteChange)
+    const handleRouteChange = () => posthog?.capture("$pageview");
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <PostHogProvider client={posthog}>
       <main className={`${inter.variable} font-sans`}>
         <Head>
+          <title>ExamManager Landing</title>
+          <meta
+            content="Deprecated waitlist and marketing landing — an early ExamManager portfolio demo."
+            name="description"
+          />
           <link href="/static/favicon.ico" rel="icon" sizes="any" />
           <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
           <link href="/static/icon.png" rel="icon" type="image/png" sizes="32x32" />
           <link href="/static/apple-touch-icon.png" rel="apple-touch-icon" />
+          <meta content="ExamManager Landing" property="og:site_name" />
           <meta content="summary_large_image" name="twitter:card" />
-          <meta content="/static/cover.png" property="og:image" />
-          <meta content="/static/cover.png" name="twitter:image" />
+          <meta
+            content="https://exams-landing.vercel.app/static/cover.png"
+            property="og:image"
+          />
+          <meta
+            content="https://exams-landing.vercel.app/static/cover.png"
+            name="twitter:image"
+          />
           <meta content="website" property="og:type" />
         </Head>
         <DeprecationBanner />

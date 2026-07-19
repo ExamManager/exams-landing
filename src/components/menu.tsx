@@ -6,7 +6,10 @@ const GITHUB_URL = "https://github.com/ExamManager";
 
 export const Menu: React.FC = () => (
   <nav className="flex items-center gap-2">
-    <ul className="flex gap-2">
+    <ul className="flex items-center gap-1 sm:gap-3">
+      <MenuItem href="/pricing" className="px-3 text-white/80">
+        Pricing
+      </MenuItem>
       <MenuItem className="w-8" href={GITHUB_URL}>
         <svg
           height="20"

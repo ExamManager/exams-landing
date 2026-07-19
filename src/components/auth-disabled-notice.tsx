@@ -10,7 +10,10 @@ export function AuthDisabledNotice() {
         className="size-3.5 shrink-0 opacity-80"
         aria-hidden="true"
       />
-      <p>Sign up is currently unavailable.</p>
+      <p>
+        Portfolio demo only — signup is unavailable. This is not an active
+        product.
+      </p>
     </div>
   );
 }

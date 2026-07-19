@@ -22,7 +22,6 @@ export const Topbar: React.FC<Readonly<TopbarProps>> = ({
     <div className="flex items-center gap-3">
       <Link href="/">
         <Logo />
-        
       </Link>
     </div>
     <Menu />
